@@ -1,0 +1,22 @@
+.signup{
+    width: 500px;
+    margin: 10px auto;
+    text-align: center;
+    margin-top: 50px;
+}
+.signup input{
+    border:none;
+    margin: 5px;
+    background-color: rgb(219, 223, 173);;
+}
+.signup label{
+    color:azure;
+}
+
+.signup button{
+    background-color:rgb(238, 169, 89);
+   border:none;
+   box-shadow: 4px 2px 2px grey;
+   border-radius: 10px;
+   color:white;
+}

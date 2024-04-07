@@ -1,0 +1,63 @@
+footer 
+{
+    position: absolute;
+    color: rgb(248, 245, 245);
+    text-align: center;
+    width: 100%;
+  bottom:-50px;
+    
+   
+}
+body{
+    overflow-x: hidden;
+    background-color: rgb(169, 179, 186);
+    position:relative;
+   min-height: 550px;
+    
+}
+
+.app{
+  overflow: auto;
+}
+
+.headerdiv{
+    position: relative;
+}
+
+.create{
+ 
+    margin: 10px auto;
+   text-align: center;
+   background-color:rgb(219, 223, 173);
+   width: 500px;
+   padding: 5px;
+   border-radius: 10px;
+   box-shadow: 2px 1px 1px grey;
+}
+
+.create form{
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+   
+   
+}
+
+.create form input, .create form textarea{
+    background-color:rgb(219, 223, 173);
+    border: none;
+    resize: none;
+    width: 100%;
+}
+
+.create form button{
+    position: absolute;
+   bottom: 5px;
+   right: -75px;
+   background-color:rgb(238, 169, 89);
+   border:none;
+   box-shadow: 4px 2px 2px grey;
+   border-radius: 10px;
+   color:white;
+}

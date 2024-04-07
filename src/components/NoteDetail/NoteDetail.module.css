@@ -1,0 +1,21 @@
+.note {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color:rgb(219, 223, 173);
+    width:600px;
+    padding: 20px;
+    margin: 20px auto;
+  }
+  
+  .note h1 {
+    color: rgb(155, 141, 141);
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .note p {
+   
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  

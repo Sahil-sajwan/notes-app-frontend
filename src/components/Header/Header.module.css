@@ -1,0 +1,37 @@
+.link{
+    text-decoration: none;
+    margin: 5px;
+    color: azure;
+    font-family: "Comic Sans MS";
+  
+}
+.logout{
+    font-size: 15px;
+    margin: 5px;
+    color: azure;
+    background-color:rgb(192, 152, 230);
+    font-family: "Comic Sans MS";
+    border:none;
+}
+.nav{
+    display: flex;
+    justify-content: flex-end;
+}
+.header{
+    background-color:rgb(192, 152, 230);
+    padding: 4px;
+    border-radius: 4px;
+    box-shadow: 4px 5px 2px rgb(131, 129, 133);
+    margin: -5px;
+}
+.header h1{
+    color:azure;
+    font-family: "Comic Sans MS";
+}
+.active{
+    text-decoration: none;
+    margin: 5px;
+    font-family: "Comic Sans MS";
+    background-color:rgb(219, 223, 173);
+    color: black;
+}
