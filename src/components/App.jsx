@@ -1,12 +1,12 @@
 import React from 'react';
-import Notes from './Notes';
+import Notes, { noteAction } from './Notes';
 import RootLayout from './layout/RootLayout';
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import HomePage from './pages/HomePage/HomePage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import SignUp from './SignUp/SignUp';
 import Login, { loginAction, logoutAction } from './Login/Login';
-import NoteDetail, { noteLoader } from './NoteDetail/NoteDetail';
+import NoteDetail, { editAction, noteLoader } from './NoteDetail/NoteDetail';
 import { checkAuthLoader, tokenLoader } from '../utils/auth';
 
 
@@ -27,7 +27,8 @@ const router = createBrowserRouter([{
       {
         path: 'notes',
         element: <Notes />,
-        loader:checkAuthLoader
+        loader:checkAuthLoader,
+        action: noteAction
         
     
       },
@@ -48,6 +49,10 @@ const router = createBrowserRouter([{
     {
       path: 'logout',
       action: logoutAction
+    },
+    {
+      path: 'edit',
+      action: editAction
     }
     
   ]

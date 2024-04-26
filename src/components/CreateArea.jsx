@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { getToken } from "../utils/auth";
-import { BASE_URL } from "../utils/info";
 
 function CreateArea(props){
  const [note, setNote] = useState({
-    title: "",
-    content: ""
+    title: props.title,
+    content: props.content
  });
 
     function handleClick(event){
@@ -26,19 +23,7 @@ function CreateArea(props){
         
             return;
         }
-        axios.post(BASE_URL+"/api/notes",note,{
-            headers:{
-               'Authorization': getToken(),
-               'Content-Type': 'application/json',
-           }
-           }).then(data => {
-             
-             props.onAdd({...note,id:data.data.id})
-           }).catch(err => {
-            props.onError(err.response.data.message)
-            
-           })
-     
+        props.postAction(note)
       
       setNote({
         title:"",
@@ -66,7 +51,7 @@ return <div className="create">
     <form>
         <input onChange={handleChange} onFocus={handleFocus} name="title" value={note.title} placeholder="Title"/><br></br>
         <textarea onChange={handleChange} onFocus={handleFocus} name="content" value={note.content} placeholder="Write here ..." rows="5" cols="40"/><br></br>
-        <button onClick={handleClick}>Add note</button>
+        <button onClick={handleClick}>{props.button}</button>
     </form>
    
 </div>

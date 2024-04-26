@@ -1,4 +1,5 @@
 .note {
+   
     border: 2px solid #ccc;
     border-radius: 5px;
     background-color:rgb(219, 223, 173);
@@ -19,3 +20,14 @@
     line-height: 1.6;
   }
   
+  .btn {
+    margin: 2px;
+    background-color:rgb(238, 169, 89);
+    border: none;
+  position: relative;
+  left: 350px;
+  top: 10px;
+    color: white;
+    box-shadow: 4px 2px 2px grey;
+    border-radius: 10px;
+  }

@@ -6,6 +6,7 @@ import BoldText from "./BoldText/BoldText"
 import axios from "axios"
 import { BASE_URL } from "../utils/info"
 import { getToken } from "../utils/auth"
+import { redirect } from "react-router-dom"
 
 function trimContent(note){
     if(note.length>100){
@@ -27,7 +28,6 @@ function Notes(){
   
     function addNote(note){
 
-      
         setNotes(
             prev => {
             return [...prev,note]
@@ -35,24 +35,21 @@ function Notes(){
 
         }
 
-        function deleteNote(id){
-            const headers = {
-                'Authorization': getToken(),
-              };
-              
-           axios.delete(BASE_URL+`/api/notes/${id}`,{headers}).then(data=>{
-            setNotes(prev => {
-                return prev.filter((note) => {
-                    return id !== note.id;
-                })
-            })
-           }).catch(err =>{
-            setMessage("some error occurred")
-       
-           })
-
-          
+        function onPost(note){
+            axios.post(BASE_URL+"/api/notes",note,{
+                headers:{
+                   'Authorization': getToken(),
+                   'Content-Type': 'application/json',
+               }
+               }).then(data => {
+                 
+                 addNote({...note,id:data.data.id})
+               }).catch(err => {
+                onError(err.response.data.message)
+                
+               })
         }
+
     if(error){
         return <BoldText>some error occurred (try to login again)</BoldText>
         }
@@ -61,9 +58,9 @@ function Notes(){
 
     return <div className="app">
     <BoldText>{message}</BoldText>
-    <CreateArea onAdd={addNote} onError={onError}/>
+    <CreateArea title="" content="" onError={onError} postAction={onPost} button="Add note"/>
     {notes.map((note,index) => {
-        return  <Note onDel={deleteNote} id={note.id} key={index} title={note.title} content={trimContent(note.content)} />
+        return  <Note id={note.id} key={index} title={note.title} content={trimContent(note.content)} />
     })}
 
     </div>
@@ -72,7 +69,7 @@ function Notes(){
      else if(!isLoading&&notes.length===0){
         
        return <div>
-        <CreateArea onAdd={addNote} onError={onError}/>
+        <CreateArea title="" content="" onError={onError} postAction={onPost} button="Add note"/>
         <BoldText>
         <p>No notes to show &#x1F605;</p>
         <p>feel free to add them</p>
@@ -87,4 +84,10 @@ function Notes(){
    
 }
 
+function noteAction(){
+    return redirect('/notes')
+}
+
 export default Notes;
+
+export {noteAction};
