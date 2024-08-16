@@ -2,12 +2,12 @@ import React from "react";
 import BoldText from "../../BoldText/BoldText";
 import Header from "../../Header/Header";
 
-function ErrorPage(){
+function ErrorPage() {
 
-return <div>
-  <Header />
+  return <div>
+    <Header />
     <BoldText>404 not found</BoldText>
-</div>
+  </div>
 
 }
 
