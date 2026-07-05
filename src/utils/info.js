@@ -1,2 +1,2 @@
-const BASE_URL = "https://notes-app-production-7f75.up.railway.app"
+const BASE_URL = "https://backendapps.duckdns.org/notesapp"
 export {BASE_URL}
